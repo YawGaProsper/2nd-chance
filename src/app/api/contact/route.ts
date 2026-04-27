@@ -29,7 +29,7 @@ export async function POST(request: Request) {
           <p><strong>Message:</strong></p>
           <p>${data.message.replace(/\n/g, '<br>')}</p>
         `,
-        replyTo: data.email,
+        reply_to: data.email,
       })
     }
 

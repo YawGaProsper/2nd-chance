@@ -34,7 +34,7 @@ export async function POST(request: Request) {
           <p><strong>Skills:</strong><br>${data.skills.replace(/\n/g, '<br>')}</p>
           <p><strong>Motivation:</strong><br>${data.motivation.replace(/\n/g, '<br>')}</p>
         `,
-        replyTo: data.email,
+        reply_to: data.email,
       })
 
       // Confirmation email to applicant
