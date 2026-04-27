@@ -1,16 +1,21 @@
-import { createClient } from '@sanity/client'
+import { createClient, type SanityClient } from '@sanity/client'
 
-export const sanityClient = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ?? 'placeholder',
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET ?? 'production',
-  apiVersion: '2024-01-01',
-  useCdn: true,
-})
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
 
-export const sanityClientWithToken = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ?? 'placeholder',
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET ?? 'production',
-  apiVersion: '2024-01-01',
-  useCdn: false,
-  token: process.env.SANITY_API_TOKEN,
-})
+function makeClient(useCdn: boolean, token?: string): SanityClient | null {
+  if (!projectId) return null
+  return createClient({
+    projectId,
+    dataset,
+    apiVersion: '2024-01-01',
+    useCdn,
+    ...(token ? { token } : {}),
+  })
+}
+
+export const sanityClient: SanityClient | null = makeClient(true)
+export const sanityClientWithToken: SanityClient | null = makeClient(
+  false,
+  process.env.SANITY_API_TOKEN
+)
