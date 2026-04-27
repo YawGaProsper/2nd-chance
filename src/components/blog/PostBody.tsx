@@ -21,9 +21,9 @@ const components = {
     ),
   },
   marks: {
-    link: ({ children, value }: { children: React.ReactNode; value: { href: string } }) => (
+    link: ({ children, value }: { children: React.ReactNode; value?: { href: string } }) => (
       <a
-        href={value.href}
+        href={value?.href ?? '#'}
         target="_blank"
         rel="noopener noreferrer"
         className="text-brand-green hover:text-brand-dark underline"
