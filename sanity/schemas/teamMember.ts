@@ -1,0 +1,25 @@
+import { defineField, defineType } from 'sanity'
+
+export const teamMemberSchema = defineType({
+  name: 'teamMember',
+  title: 'Team Member',
+  type: 'document',
+  fields: [
+    defineField({ name: 'name', title: 'Full Name', type: 'string', validation: (r) => r.required() }),
+    defineField({ name: 'role', title: 'Role / Title', type: 'string', validation: (r) => r.required() }),
+    defineField({ name: 'photo', title: 'Photo', type: 'image', options: { hotspot: true } }),
+    defineField({ name: 'bio', title: 'Bio', type: 'text', rows: 4 }),
+    defineField({
+      name: 'country',
+      title: 'Country',
+      type: 'string',
+      options: { list: ['uk', 'south-sudan', 'both'], layout: 'radio' },
+      validation: (r) => r.required(),
+    }),
+    defineField({ name: 'linkedIn', title: 'LinkedIn URL', type: 'url' }),
+    defineField({ name: 'order', title: 'Display Order', type: 'number', initialValue: 99, description: 'Lower number = shown first' }),
+  ],
+  preview: {
+    select: { title: 'name', subtitle: 'role', media: 'photo' },
+  },
+})
