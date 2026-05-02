@@ -37,10 +37,13 @@ export function Footer() {
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-4">
               <Image src="/logo.png" alt="2nd Chance logo" width={64} height={64} className="object-contain" />
-              <span className="font-bold text-white text-lg">2nd Chance</span>
+              <div className="flex flex-col leading-tight">
+                <span className="font-bold text-white text-lg">2nd Chance</span>
+                <span className="text-brand-green text-sm font-semibold tracking-wide">Everyone deserves it</span>
+              </div>
             </Link>
             <p className="text-green-300 text-sm leading-relaxed mb-5">
-              Everyone deserves it. Networking, mentoring and support for young people in the UK and South Sudan.
+              Networking, mentoring and support for young people in the UK and South Sudan.
             </p>
             <div className="flex gap-3">
               {socialLinks.map(({ href, icon: Icon, label }) => (

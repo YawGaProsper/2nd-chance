@@ -21,19 +21,20 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-brand-border shadow-sm">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-20 items-center justify-between">
+        <div className="flex h-24 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
             <Image
               src="/logo.png"
               alt="2nd Chance logo"
-              width={72}
-              height={72}
+              width={88}
+              height={88}
               className="object-contain"
             />
-            <span className="hidden sm:block font-bold text-brand-dark text-lg leading-tight">
-              2nd Chance
-            </span>
+            <div className="hidden sm:flex flex-col leading-tight">
+              <span className="font-bold text-brand-dark text-xl">2nd Chance</span>
+              <span className="text-brand-green text-sm font-semibold tracking-wide">Everyone deserves it</span>
+            </div>
           </Link>
 
           {/* Desktop nav */}
