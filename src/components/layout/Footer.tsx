@@ -36,7 +36,7 @@ export function Footer() {
           {/* Brand column */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-4">
-              <Image src="/logo.png" alt="2nd Chance logo" width={38} height={38} className="object-contain" />
+              <Image src="/logo.png" alt="2nd Chance logo" width={64} height={64} className="object-contain" />
               <span className="font-bold text-white text-lg">2nd Chance</span>
             </Link>
             <p className="text-green-300 text-sm leading-relaxed mb-5">
